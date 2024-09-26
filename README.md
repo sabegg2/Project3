@@ -1,7 +1,7 @@
 # Project3: Anemometer Data Comparison Dashboard
 - Steph Abegg
 
-## Research Question
+## Research question
 
 3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
 
@@ -30,11 +30,11 @@ The relevant columns include:
 In practice the anemometer data is averaged only 15-minute intervals. After doing so (described in the dar preparation section below), there were 2626 rows of data.
 
 
-## Data Preparation
+## Data preparation
 
 Before analysis could ensue, the datasets had to be cleaned and columns had to be added. My data preparation was done with Python in the file [datacleaning.ipynb](datacleaning.ipynb). 
 
-### Cleaning:
+### Data cleaning:
 
 The various cleaning steps are described below.
 
@@ -58,7 +58,7 @@ The various cleaning steps are described below.
 
 - The two anemometers corresponded to different heights above the ground. The 3D anemometer is 3 meters above the ground, the 2D anemometer is 5.2 meters above the ground. To be comparable, the wind speeds were corrected using the wind shear formula (v_2=v_1  ((h_2/z_0 )  )/((h_1/z_0 ) ), where v_1 is the reference wind speed measured at height h_1, v_2 is the wind speed at height h_2, and z_0 is the roughness length which depends on the terrain).  The height of the 3D anemometer was used for reference, and the 2D anemometer wind speeds were corrected to represent a height of 3 meters above the ground.
 
-### New Columns:
+### New columns:
 
 The columns that were added are descibed below.
 
@@ -76,11 +76,11 @@ The columns that were added are descibed below.
 
 - A column was added for wind speed in miles per hour. Miles per hour is the unit used for the plots, being more commonplace in the United States than meters per second.
 
-### Joined Dataframes: 
+### Joined dataframes: 
 
 Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2D_15min” and “data_3D_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2D_and_3D” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements.
 
-## The Elements of the Dashboard
+## The elements of the dashboard
 
 The elements of the dashboard are:
 
@@ -108,15 +108,15 @@ https://sabegg2.github.io/Project3/
 
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
 
-## New Library Not Covered in Class
+## New library not covered in class
 
 In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports). 
 
-## Ethical Considerations
+## Ethical considerations
 
-## Data Analysis
+## Data analysis
 
 ### Timeseries comparison
 
@@ -157,11 +157,11 @@ The images above show the linear regression between the 15-minute averaged tempe
 
 Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
-## References for Data
+## References for data
 
 The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor. [https://www.longpathtech.com/](https://www.longpathtech.com/).
 
 
-## References for Code
+## References for code
 
 For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database.
