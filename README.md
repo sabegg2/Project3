@@ -1,7 +1,7 @@
 # Project 3: Anemometer Data Comparison Dashboard
 - Steph Abegg
 
-## <span style="color:blue">Research question</span>
+## Research question
 
 3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
 
@@ -35,7 +35,7 @@ In practice the anemometer data is averaged only 15-minute intervals. After doin
 
 Before analysis could ensue, the datasets had to be cleaned and columns had to be added. My data preparation was done with Python in the file [datacleaning.ipynb](datacleaning.ipynb). 
 
-### Data cleaning:
+#### Data cleaning:
 
 The various cleaning steps are described below.
 
@@ -59,7 +59,7 @@ The various cleaning steps are described below.
 
 - The two anemometers corresponded to different heights above the ground. The 3D anemometer is 3 meters above the ground, the 2D anemometer is 5.2 meters above the ground. To be comparable, the wind speeds were corrected using the wind shear formula (v_2=v_1  ((h_2/z_0 )  )/((h_1/z_0 ) ), where v_1 is the reference wind speed measured at height h_1, v_2 is the wind speed at height h_2, and z_0 is the roughness length which depends on the terrain).  The height of the 3D anemometer was used for reference, and the 2D anemometer wind speeds were corrected to represent a height of 3 meters above the ground.
 
-### New columns:
+#### New columns:
 
 The columns that were added are descibed below.
 
@@ -77,7 +77,7 @@ The columns that were added are descibed below.
 
 - A column was added for wind speed in miles per hour. Miles per hour is the unit used for the plots, being more commonplace in the United States than meters per second.
 
-### Joined dataframes: 
+#### Joined dataframes: 
 
 Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2d_15min” and “data_3d_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2d_and_3d” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements. All rows with null values were removed.
 
@@ -111,7 +111,7 @@ https://sabegg2.github.io/Project3/
 
 ## Data analysis
 
-### Timeseries comparison
+#### Timeseries comparison
 
 <img src="images/timeseries_wspd.png" width=500>
 
@@ -121,7 +121,7 @@ https://sabegg2.github.io/Project3/
 
 The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
-### Histogram analysis
+#### Histogram analysis
 
 <img src="images/hist_wspd.png" width=300> 
 <img src="images/hist_wdr.png" width=300>
@@ -137,7 +137,7 @@ Over the 30-day span of data:
   
 - The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. This is surprisingly small given the scatter in wind speeds.
 
-### Regression analysis
+#### Regression analysis
 
 <img src="images/reg_wspd.png" width=300> 
 <img src="images/reg_wdr.png" width=300>
@@ -147,7 +147,7 @@ The 2D and 3D anemometers are from the same location, so under ideal behavior th
 
 The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher)  for all three variables, indicating a strong linear relationship. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. Afterall, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
 
-### Overall conclusion
+#### Overall conclusion
 
 Based on this analysis, the measurements of wind speed, wind direction, and tempearture from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
