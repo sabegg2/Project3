@@ -108,6 +108,7 @@ function buildTimeseries(option) {
 function buildHistogram(option) {
     // Fetch data from the local Node.js server
       d3.json('http://localhost:3000/data').then(function(timeSeriesData) {
+      //d3.json('../data/data.json').then(function(timeSeriesData) {
 
         if (option == "Wind Speed") {
             var Diff = timeSeriesData.map(entry => entry.wspd_mph_diff);
