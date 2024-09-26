@@ -1,5 +1,23 @@
 # Project 3: Anemometer Data Comparison Dashboard
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project)
+- Data Visualization Track
+
+
+## Project requirements
+
+- The project includes visualizations, created with Plotly in JavaScript. There are three vislizations (timeseries scatterplot, histogram, and regression scatterplot) for each metric.
+
+- The data is stored in and extracted from a PostgreSQL database.
+
+- The project contains three JavaScript libraries that we did not cover in class (pg, express, and cors).
+
+- The project dataset has 2344 records (raw data has many more).
+
+- The project includes user-driven interaction since the user can select which metric (wind speed, wind direction, temperature) to view via a dropdown, and the JavaScript-powered visualizations can be zoomed into with Plotly tools.
+
+- Each of the visualizations (timeseries scatterplot, histogram, and regression scatterplot) includes three views corresponding to the three different metrics (wind speed, wind direction, temperature).
+
+- The GitHub repo includes a README.md with an outline of the project.
 
 
 ## Research question
