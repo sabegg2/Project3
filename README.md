@@ -144,7 +144,7 @@ Over the 30-day span of data:
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. The points further from the line tend to have lower wind speeds.
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers, indicating that perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed has a higher error of measurement. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away!
 
 ### Overall conclusion
 
