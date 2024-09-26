@@ -167,7 +167,7 @@ The images above show the linear regression between the 15-minute averaged tempe
 
 #### Overall conclusion
 
-Based on this analysis, the measurements of wind speed, wind direction, and temperature from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
+Based on this analysis, the measurements of wind speed, wind direction, and temperature from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This all suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
 
 ## Database
