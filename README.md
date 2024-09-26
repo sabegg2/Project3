@@ -21,3 +21,12 @@ The elements of the dashboard are:
 (4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is plotted.
 
 <img src="images/regression.png" width=500>
+
+
+## Files
+
+The javascript and html files are:
+
+[app.js](static/js/app.js)
+
+[index.html](index.html)
