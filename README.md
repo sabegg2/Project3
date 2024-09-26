@@ -1,5 +1,5 @@
 # Project 3: Anemometer Data Comparison Dashboard
-- Steph Abegg
+- Steph Abegg (I ran it by James first, and he was okay with me going solo for this project)
 
 ## Research question
 
