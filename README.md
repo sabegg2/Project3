@@ -67,7 +67,7 @@ It was required that data was stored in and extracted from at least one database
 
 ## Data Preparation
 
-I did a significant amout of data cleaning to prepare the 2d and 3d datasets used in the visualizations.
+I did a significant amout of data cleaning to prepare the 2d and 3d datasets used in the visualizations. Also some analysis.
 
 [datacleaning.ipynb](datacleaning.ipynb)
 
