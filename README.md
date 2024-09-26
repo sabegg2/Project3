@@ -48,7 +48,7 @@ The various cleaning steps are described below.
 
  - Rows with null values were dropped.
 
- - Histograms of the column data were created to check if the data had any obvious outliers or points in error. This revealed that the 2D anemometer data had a few data points with unrealistic temperatures (e.g. as low as -97°C and as high as 93°C, a bit extreme for even North Dakota in the winter!). Any rows where the temperature was outside of -30°C to 30°C were removed. Neither the 3D anemometer data nor the NAM data had temperatures outside of this range.
+ - Histograms of the column data were created to check if the data had any obvious outliers or points in error. This revealed that the 2D anemometer data had a few data points with unrealistic temperatures (e.g. as low as -97°C and as high as 93°C, a bit extreme for even North Dakota in the winter!). Any rows where the temperature was outside of -30°C to 30°C were removed. The 3D anemometer did not record temperatures outside of this range.
 
 - The measurements from the anemometers are in five-second intervals. An individual measurement is an internal computation from several data points taken over the preceding five seconds. This number is given in the “n_pts” column.  A typical measurement from the 3D anemometer is computed from about 100 individual data points while a typical measurement from the 2D anemometer is computed from about 25 individual data points. The histograms indicated that some measurements had just a couple of data points contributing to the measurement. Any rows where the number of internal data points was less than five were removed.  
 
@@ -78,7 +78,7 @@ The columns that were added are descibed below.
 
 ### Joined dataframes: 
 
-Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2D_15min” and “data_3D_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2D_and_3D” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements. All rows with null values were removed.
+Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2d_15min” and “data_3d_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2d_and_3d” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements. All rows with null values were removed.
 
 The joined dataframe of 15-minute averages for both anemometers was exported into a .csv, which was the data used for the dashboard. This joined dataframe had 2344 rows of data.
 
@@ -86,19 +86,19 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 The elements of the dashboard are:
 
-(1) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected. All of the plots and metadata update when a new option is selected.
+(1) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected.
 
 <img src="images/select.png" width=200>
 
-(2) A timeseries that shows the 2D and 3D anemometer data over time, as well as the difference between the measurements correpsonding to the same 15-minute window.
+(2) A timeseries that shows the 2D and 3D anemometer data over time, as well as the difference between the measurements correpsonding to the same 15-minute window. The user can zoom into the plot using the Plotly zoom feature.
 
 <img src="images/timeseries.png" width=900>
 
-(3) A histogram for the differences between the measuements.
+(3) A histogram for the differences between the measuements. The histogram also shows the average and median of the differences over the 30-day span of data.
 
 <img src="images/histogram.png" width=500>
 
-(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is plotted.
+(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well.
 
 <img src="images/regression.png" width=500>
 
@@ -134,7 +134,7 @@ Over the 30-day span of data:
 
 - The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees, well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer.
   
-- The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. 
+- The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. This is surprisingly small given the scatter in wind speeds.
 
 ### Regression analysis
 
@@ -144,16 +144,16 @@ Over the 30-day span of data:
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers, indicating that perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed has a higher error of measurement. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away!
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher)  for all three variables, indicating a strong linear relationship. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. Afterall, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
 
 ### Overall conclusion
 
-Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
+Based on this analysis, the measurements of wind speed, wind direction, and tempearture from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
 
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
 
 
 ## New library not covered in class
