@@ -113,11 +113,11 @@ https://sabegg2.github.io/Project3/
 
 #### Timeseries comparison
 
-<img src="images/timeseries_wspd.png" width=700>
+<img src="images/timeseries_wspd.png" width=900>
 
-<img src="images/timeseries_wdr.png" width=700>
+<img src="images/timeseries_wdr.png" width=900>
 
-<img src="images/timeseries_temp.png" width=700>
+<img src="images/timeseries_temp.png" width=900>
 
 The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
