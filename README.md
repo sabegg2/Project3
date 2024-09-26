@@ -44,7 +44,7 @@ The relevant columns include:
 
 - Wind direction in degrees (North: 0°, East: 90°);
 
-- Wind speed in meters per second.
+- Wind speed in meters per second;
 
 - Wind elevation in degrees (3D anemometer only).
 
