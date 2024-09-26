@@ -1,7 +1,7 @@
 # Project 3: Anemometer Data Comparison Dashboard
 - Steph Abegg
 
-## Research question
+## <span style="color:blue">Research question</span>
 
 3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
 
