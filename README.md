@@ -2,6 +2,12 @@
 - Anemometer Data Comparison Dashboard
 - Steph Abegg
 
+## Research Question
+
+3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
+
+A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via timeseries plots, regression analysis, and binning.
+
 ## The Elements of the Dashboard
 
 The elements of the dashboard are:
@@ -22,7 +28,6 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
-
 ## Files
 
 The javascript and html files are:
@@ -30,3 +35,7 @@ The javascript and html files are:
 [app.js](static/js/app.js)
 
 [index.html](index.html)
+
+## Data Preparation
+
+[datacleaning.ipynb](datacleaning.ipynb)
