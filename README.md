@@ -99,43 +99,25 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
-## GitHub Pages
-
-I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link:
+I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. However, since the data is accessed from a local database on a local server, my local server must be running for the data to display.
 
 https://sabegg2.github.io/Project3/
 
-## Files
-
-The javascript and html files are:
-
-[app.js](static/js/app.js)
-
-[index.html](index.html)
+The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
 
 ## Database
 
-It was required that data was stored in and extracted from at least one database. I used pgAdmin. To access the data, I wrote a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP as a json file. H
-
-[anemometer_db_schema.sql](anemometer_db_schema.sql)
-
-[server.js](static/js/app.js)
-
-
-
-
-
-## Conclusions
-
-Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (<1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js) that will query your PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
 
 ## New Library Not Covered in Class
 
-Project must include at least one JavaScript OR Python library that we did not cover. 
-
-I needed a server-side language to query the PostgreSQL database. This server will act as an intermediary between your database and D3.js in the browser. To do this, I installed the necessary dependencies pg (PostgreSQL client for Node.js) and express (to set up the server). Next, with the help of ChatGTP, I wrote a simple Node.js server that queried my PostgreSQL database and serve the data over HTTP. I also needed to configure my  Node.js server to allow cross-origin requests by adding CORS headers. To do this, I installed the cors package.
+In this project, we were required to include at least one JavaScript OR Python library that we did not cover. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports). 
 
 ## Ethical Considerations
+
+## Data Analysis
+
+Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (<1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
 ## References for Data
 
