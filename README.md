@@ -1,5 +1,4 @@
-# Project3
-- Anemometer Data Comparison Dashboard
+# Project3: Anemometer Data Comparison Dashboard
 - Steph Abegg
 
 ## Research Question
