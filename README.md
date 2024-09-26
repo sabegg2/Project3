@@ -185,7 +185,7 @@ In this project, we were required to include at least one JavaScript or Python l
 The data used in this study was from two anemometers located at a site in North Dakota. The anemometers and the data they provide are property of LongPath Technologies, Inc. Since historical wind data is accessibe to anyone who wants to install their own anemometer or from sevearl local foreacsting stations, the data is not considered confidential. There is no identifying information about the site or persons involved, so there are no ethical issues with its usage.
 
 
-### Assumptions made in this study
+## Assumptions made in this study
 
 - The anemometers are oriented correctly and were in normal operation during the timespan of the datasets.
 
