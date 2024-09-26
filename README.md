@@ -60,7 +60,7 @@ The various cleaning steps are described below.
 
 ### New Columns:
 
-The columns that were added are described below. 
+The columns that were added are descibed below.
 
 - To make the time series plots more representative of a local day (midnight to midnight), a column for local time was added. The location of the anemometers is in Central Time, which is UTC -06:00, so computing local time involved subtracting 6 hours from the UTC time.
 
@@ -100,19 +100,19 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
+The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
+
 I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. However, since the data is accessed from a local database on a local server, my local server must be running for the data to display.
 
 https://sabegg2.github.io/Project3/
 
-The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
-
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js) that will query your PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
 
 ## New Library Not Covered in Class
 
-In this project, we were required to include at least one JavaScript OR Python library that we did not cover. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports). 
+In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports). 
 
 ## Ethical Considerations
 
