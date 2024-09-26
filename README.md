@@ -120,23 +120,38 @@ In this project, we were required to include at least one JavaScript or Python l
 
 ### Timeseries comparison
 
-Figure 7 shows timeseries of the 15-minute averaged temperature, wind direction, and wind speed measurements of both the 2D (gold) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The green dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
+<img src="images/timeseries_wspd.png" width=500>
+
+<img src="images/timeseries_wdr.png" width=500>
+
+<img src="images/timeseries_temp.png" width=500>
+
+The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
 ### Histogram analysis
 
-Over the 30-day span of data, the average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  
-Over the 30-day span of data, the average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees, well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer. 
-Over the 30-day span of data, the average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. 
+<img src="images/hist_wspd.png" width=300> 
+<img src="images/hist_wdr.png" width=300>
+<img src="images/hist_temp.png" width=300>
+
+The histograms show a distribution of the differences between the 2D and 3D anemometer data. 
+
+Over the 30-day span of data:
+- The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  
+
+- The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees, well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer.
+  
+- The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. 
 
 ### Regression analysis
 
+<img src="images/reg_wspd.png" width=300> 
+<img src="images/reg_wdr.png" width=300>
+<img src="images/reg_temp.png" width=300>
+
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-Figure 9 shows the linear regression between the 15-minute averaged temperature measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.99, which indicates a strong positive linear relationship. The points further from the line tend to have lower wind speeds.
-
-Figure 10 shows the linear regression between the 15-minute averaged wind direction measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.99, which indicates a strong positive linear relationship. The points further from the line tend to have lower wind speeds. This makes sense, as calm winds have a less definite wind direction.
-
-Figure 11 shows the linear regression between the 15-minute averaged wind speed measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.95, which indicates a strong positive linear relationship. The scatter tends to increase as wind speed increases.
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. The points further from the line tend to have lower wind speeds.
 
 ### Overall conclusion
 
