@@ -1,6 +1,7 @@
 # Project 3: Anemometer Data Comparison Dashboard
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project)
 
+
 ## Research question
 
 3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
@@ -9,6 +10,7 @@ A question is whether 2D anemometer data such as temperature, wind direction, an
 
 <img src="images/2d_anemometer.png" width=150> <img src="images/3d_anemometer.png" width=150>
 Left: 2D anemometer. Right: 3D anemometer.
+
 
 ## The Data
 
@@ -83,6 +85,7 @@ Now that the data was cleaned and the necessary columns added, it was time to me
 
 The joined dataframe of 15-minute averages for both anemometers was exported into a .csv, which was the data used for the dashboard. This joined dataframe had 2344 rows of data.
 
+
 ## The elements of the dashboard
 
 The elements of the dashboard are:
@@ -108,6 +111,7 @@ The javascript and html files for the dashboard are [app.js](static/js/app.js) a
 I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. However, since the data is accessed from a local database on a local server, my local server must be running for the data to display.
 
 https://sabegg2.github.io/Project3/
+
 
 ## Data analysis
 
@@ -161,6 +165,17 @@ In this project, we were required to include at least one JavaScript or Python l
 ## Ethical considerations
 
 The data used in this study was from two anemometers located at a site in North Dakota. The anemometers and the data they provide are property of LongPath Technologies, Inc. Since historical wind data is accessibe to anyone who wants to install their own anemometer or from sevearl local foreacsting stations, the data is not considered confidential. There is no identifying information about the site or persons involved, so there are no ethical issues with its usage.
+
+
+### Assumptions made in this study
+
+- The anemometers are oriented correctly and were in normal operation during the timespan of the datasets.
+
+- The wind shear formula applies to correcting the wind speeds for height.
+    
+- Both anemometers are placed in the open and surrounded by similar terrain and not located close to any heat sink or source.
+
+- The anemometer data was collected for 30 days during the winter in North Dakota, when weather can be quite harsh. This analysis assumes that the weather and conditions do not affect the results.  It also assumes that this 30-day window is representative of general behavior at any time.
 
 
 ## References for data
