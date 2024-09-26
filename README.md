@@ -8,6 +8,25 @@
 
 A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via timeseries plots, regression analysis, and binning.
 
+## The Data
+
+1.	Data from a 2D anemometer in North Dakota, located at 47.8437 N, 102.8524 W. The elevation at this location is approximately 2300 ft above sea level and the 2D anemometer is situated 5.2 meters above the ground. The 2D anemometer data spans 30 days from February 11, 2024 to March 11, 2024, on five-second intervals. There is a two-day gap in the data, over the days of February 22 and 23, corresponding to a winter storm where the 2D anemometer was iced up. (So, we have a total of 28 days of data for the 2D anemometer, although throughout this paper it is referred to as 30 days due to the time span of the data.) The raw 2D anemometer data contains 472,048 rows (pared down to 404,984 rows after cleaning the data). The relevant columns include:
+a.	Date and time in UTC;
+b.	Number of internal data points used to compute the measurements corresponding to a single time;
+c.	Temperature in degrees Celsius;
+d.	Wind direction in degrees (North: 0°, East: 90°);
+e.	Wind speed in meters per second.
+
+2.	Data from a 3D anemometer in North Dakota, located at the same location as the 2D anemometer. The 3D anemometer is situated 3 meters above the ground. The 3D anemometer data spans 30 days from February 11, 2024 to March 11, 2024, on five-second intervals. There are two two-day gaps in the data, over the days of February 22 and 23 and March 3 and 4, corresponding to winter storms when the 3D anemometer was iced up. (So, we have a total of 26 days of data for the 3D anemometer, although throughout this paper it is referred to as 30 days due to the time span of the data.) The raw 3D anemometer data contains 420,917 rows (pared down to 420,911 rows after cleaning the data). The relevant columns include:
+a.	Date and time in UTC ;
+b.	Number of internal data points used to compute the measurements corresponding to a single time;
+c.	Temperature in degrees Celsius;
+d.	Wind direction in degrees (North: 0°, East: 90°);
+e.	Wind speed in meters per second;
+f.	Wind elevation in degrees.
+
+2626 rows of 15-minute averaged 2d and 3d anemometer data.
+
 ## The Elements of the Dashboard
 
 The elements of the dashboard are:
