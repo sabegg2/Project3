@@ -123,9 +123,7 @@ The images above show timeseries of the 15-minute averaged wind speed, wind dire
 
 #### Histogram analysis
 
-<img src="images/hist_wspd.png" width=300> 
-<img src="images/hist_wdr.png" width=300>
-<img src="images/hist_temp.png" width=300>
+<img src="images/hist_wspd.png" width=300> <img src="images/hist_wdr.png" width=300><img src="images/hist_temp.png" width=300>
 
 The histograms show a distribution of the differences between the 2D and 3D anemometer data. 
 
