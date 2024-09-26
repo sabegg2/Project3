@@ -25,7 +25,7 @@ d.	Wind direction in degrees (North: 0°, East: 90°);
 e.	Wind speed in meters per second;
 f.	Wind elevation in degrees.
 
-2626 rows of 15-minute averaged 2d and 3d anemometer data.
+After conducting 15-minute averaging, this gaave 2626 rows data with 2D and 3D measurements during the same 15-minut windows.
 
 ## The Elements of the Dashboard
 
@@ -57,7 +57,7 @@ The javascript and html files are:
 
 ## Database
 
-Data stored in and extracted from at least one database (pgAdmin). To run, I wrote a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP as a json file. H
+It was required that data was stored in and extracted from at least one database. I used pgAdmin. To access the data, I wrote a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP as a json file. H
 
 [anemometer_db_schema.sql](anemometer_db_schema.sql)
 
@@ -73,27 +73,17 @@ I did a significant amout of data cleaning to prepare the 2d and 3d datasets use
 
 ## New Library Not Covered in Class
 
-const express = require('express');
-const { Pool } = require('pg');
-const cors = require('cors');  // Import the CORS package
+Project must include at least one JavaScript OR Python library that we did not cover. 
 
-You need a server-side language (e.g., Node.js, Python, PHP) to query the PostgreSQL database. This server will act as an intermediary between your database and D3.js in the browser.
-Install necessary dependencies:
-
-pg: PostgreSQL client for Node.js.
-express: To set up a server.
-
-Now, write a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP.
-
-Summary of the Flow:
-Node.js server connects to PostgreSQL and queries the database.
-The data from PostgreSQL is exposed via an API endpoint (e.g., /data).
-D3.js in the front-end fetches the data from this API endpoint using d3.json() and visualizes it.
-
-You need to configure your Node.js server to allow cross-origin requests by adding CORS headers.
-
-Here’s how you can fix it by adding CORS support to your Node.js app.
-
-1. Install the cors package:
+I needed a server-side language to query the PostgreSQL database. This server will act as an intermediary between your database and D3.js in the browser. To do this, I installed the necessary dependencies pg (PostgreSQL client for Node.js) and express (to set up the server). Next, with the help of ChatGTP, I wrote a simple Node.js server that queried my PostgreSQL database and serve the data over HTTP. I also needed to configure my  Node.js server to allow cross-origin requests by adding CORS headers. To do this, I installed the cors package.
 
 ## Ethical Considerations
+
+## References for Data
+
+The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor.
+
+## References for Code
+
+For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database.
+
