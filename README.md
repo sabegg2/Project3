@@ -36,6 +36,16 @@ The javascript and html files are:
 
 [index.html](index.html)
 
+## Database
+
+Data stored in and extracted from at least one database (pgAdmin). To run, I wrote a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP as a json file. H
+
+[anemometer_db_schema.sql](anemometer_db_schema.sql)
+
+[server.js](static/js/app.js)
+
+
+
 ## Data Preparation
 
 I did a significant amout of data cleaning to prepare the 2d and 3d datasets used in the visualizations.
