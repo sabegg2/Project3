@@ -47,6 +47,12 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
+## GitHub Pages
+
+I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link:
+
+https://sabegg2.github.io/Project3/
+
 ## Files
 
 The javascript and html files are:
