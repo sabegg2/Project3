@@ -106,13 +106,6 @@ I deployed my repository to GitHub Pages. The interactive dashboard I created in
 
 https://sabegg2.github.io/Project3/
 
-## Database
-
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
-
-## New library not covered in class
-
-In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports). 
 
 ## Ethical considerations
 
@@ -156,6 +149,17 @@ The images above show the linear regression between the 15-minute averaged tempe
 ### Overall conclusion
 
 Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
+
+
+## Database
+
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that will query my PostgreSQL database and serve the data over HTTP as a json file. In order for the data to display, my local server needs to be running.
+
+
+## New library not covered in class
+
+In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports).
+
 
 ## References for data
 
