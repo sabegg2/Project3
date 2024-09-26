@@ -12,7 +12,7 @@ The elements of the dashboard are:
 
 (2) A timeseries that shows the 2D and 3D anemometer data over time, as well as the difference between the measurements correpsonding to the same 15-minute window.
 
-<img src="images/timeseries.png" width=600>
+<img src="images/timeseries.png" width=900>
 
 (3) A histogram for the differences between the measuements.
 
