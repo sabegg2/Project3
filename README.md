@@ -95,3 +95,5 @@ You need to configure your Node.js server to allow cross-origin requests by addi
 Here’s how you can fix it by adding CORS support to your Node.js app.
 
 1. Install the cors package:
+
+## Ethical Considerations
