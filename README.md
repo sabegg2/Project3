@@ -137,9 +137,7 @@ Over the 30-day span of data:
 
 #### Regression analysis
 
-<img src="images/reg_wspd.png" width=300> 
-<img src="images/reg_wdr.png" width=300>
-<img src="images/reg_temp.png" width=300>
+<img src="images/reg_wspd.png" width=300> <img src="images/reg_wdr.png" width=300> <img src="images/reg_temp.png" width=300>
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
