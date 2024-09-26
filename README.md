@@ -38,4 +38,6 @@ The javascript and html files are:
 
 ## Data Preparation
 
+I did a significant amout of data cleaning to prepare the 2d and 3d datasets used in the visualizations.
+
 [datacleaning.ipynb](datacleaning.ipynb)
