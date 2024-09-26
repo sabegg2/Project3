@@ -27,7 +27,7 @@ The relevant columns include:
 
 - Wind elevation in degrees (3D anemometer only).
 
-In practice the anemometer data is averaged only 15-minute intervals. After doing so (described in the dar preparation section below), there were 2626 rows of data.
+In practice the anemometer data is averaged only 15-minute intervals. After doing so and removing rows where either the 2D or 3D data was not represented (this is all described in the data preparation section below), there were 2344 rows of data.
 
 
 ## Data preparation
