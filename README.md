@@ -8,23 +8,25 @@
 
 A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via timeseries plots, regression analysis, and binning.
 
+<img src="images/2d_anemometer.png" width=200> <img src="images/3d_anemometer.png" width=200>
+
 ## The Data
 
 This study uses two datasets, both from anemometers located in North Dakota at 47.8437 N, 102.8524 W, elevation 2300 ft above sea level. The data from both anemometers spans spans 30 days from February 11, 2024 to March 11, 2024. One dataset is from is from a 2D anemometer and the other from a 3D anemometer. The anemometers measure on five-second intervals. There are two two-day gaps in the data, corresponding to when one or both of the anemometers was iced up: February 22 and 23 (both anemometers iced up) and March 3 and 4 (3D anemometer iced up). So we have a total of 26 days of data to compare. The raw 2D anemometer data contains 472,048 rows (pared down to 404,984 rows after cleaning the data) and the raw 3D anemometer data contains 420,917 rows (pared down to 420,911 rows after cleaning the data).
 
 The relevant columns include:
 
-a.	Date and time in UTC;
+- Date and time in UTC;
 
-b.	Number of internal data points used to compute the measurements corresponding to a single time;
+- Number of internal data points used to compute the measurements corresponding to a single time;
 
-c.	Temperature in degrees Celsius;
+- Temperature in degrees Celsius;
 
-d.	Wind direction in degrees (North: 0°, East: 90°);
+- Wind direction in degrees (North: 0°, East: 90°);
 
-e.	Wind speed in meters per second.
+- Wind speed in meters per second.
 
-f. 	Wind elevation in degrees (3D anemometer only).
+- Wind elevation in degrees (3D anemometer only).
 
 In practice the anemometer data is averaged only 15-minute intervals. After doing so (described in the dar preparation section below), there were 2626 rows of data.
 
@@ -117,14 +119,35 @@ In this project, we were required to include at least one JavaScript OR Python l
 
 ## Data Analysis
 
-Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (<1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
+### Timeseries comparison
+
+Figure 7 shows timeseries of the 15-minute averaged temperature, wind direction, and wind speed measurements of both the 2D (gold) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The green dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
+
+### Histogram analysis
+
+Over the 30-day span of data, the average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  
+Over the 30-day span of data, the average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees, well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer. 
+Over the 30-day span of data, the average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour. 
+
+### Regression analysis
+
+The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
+
+Figure 9 shows the linear regression between the 15-minute averaged temperature measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.99, which indicates a strong positive linear relationship. The points further from the line tend to have lower wind speeds.
+
+Figure 10 shows the linear regression between the 15-minute averaged wind direction measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.99, which indicates a strong positive linear relationship. The points further from the line tend to have lower wind speeds. This makes sense, as calm winds have a less definite wind direction.
+
+Figure 11 shows the linear regression between the 15-minute averaged wind speed measurements of the two anemometers. Each data point corresponds to the same 15 minutes in time. We see that the data follows a linear relationship with slope close to 1 with a correlation coefficient of 0.95, which indicates a strong positive linear relationship. The scatter tends to increase as wind speed increases.
+
+### Overall conclusion
+
+Based on this analysis, the measurements of temperature, wind direction, and wind speed from the 2D and 3D anemometer show themselves to be very similar and with a strong linear relationship. There is some scatter in the data, but when averaged over time, the values are within a reasonable error tolerance. Removing data with low wind speeds (less than 1m/s, the typical threshold for reliable measurements anyway) reduces the scatter. This suggests that the 2D anemometer data can be used instead of the 3D anemometer data if needed.
 
 ## References for Data
 
-The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor.
+The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor. [https://www.longpathtech.com/](https://www.longpathtech.com/).
+
 
 ## References for Code
 
 For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database.
-
-
