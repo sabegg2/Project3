@@ -122,6 +122,25 @@ function buildHistogram(option) {
             var plot_title = 'Histogram of Temperature Differences';
             var x_axis_label = 'Diff, 2D-3D (F)';
         }
+
+      // Calculate the average
+      let total = Diff.reduce((sum, value) => sum + value, 0);
+      let avg = total / Diff.length;
+
+      // Function to calculate the median
+      function calculateMedian(arr) {
+        let sorted = [...arr].sort((a, b) => a - b);
+        let middle = Math.floor(sorted.length / 2);
+
+        if (sorted.length % 2 === 0) {
+            // If even number of elements, take average of the two middle numbers
+            return (sorted[middle - 1] + sorted[middle]) / 2;
+        } else {
+            // If odd, return the middle element
+            return sorted[middle];
+        }
+      }
+      let median = calculateMedian(Diff);
         
       // Define the histogram trace
       let trace = {
@@ -137,6 +156,66 @@ function buildHistogram(option) {
           title: plot_title,  // Title of the plot
           xaxis: { title: x_axis_label },  // X-axis label
           yaxis: { title: 'Frequency' },  // Y-axis label (frequency count)
+          shapes: [
+            // Average line
+            {
+                type: 'line',
+                x0: avg, 
+                x1: avg,
+                y0: 0, 
+                y1: 1, 
+                xref: 'x', 
+                yref: 'paper', 
+                line: {
+                    color: 'red',
+                    width: 2,
+                    dash: 'dot'
+                }
+            },
+            // Median line
+            {
+                type: 'line',
+                x0: median, 
+                x1: median,
+                y0: 0, 
+                y1: 1, 
+                xref: 'x', 
+                yref: 'paper', 
+                line: {
+                    color: 'pink',
+                    width: 2,
+                    dash: 'dash' // Dash line for median
+                }
+            }
+          ],
+          annotations: [
+            // Average annotation
+            {
+                x: avg,
+                y: 1.05, 
+                xref: 'x',
+                yref: 'paper',
+                text: `Average: ${avg.toFixed(2)}`, 
+                showarrow: false,
+                font: {
+                    size: 14,
+                    color: 'red'
+                }
+            },
+            // Median annotation
+            {
+                x: median,
+                y: 1.10, 
+                xref: 'x',
+                yref: 'paper',
+                text: `Median: ${median.toFixed(2)}`, 
+                showarrow: false,
+                font: {
+                    size: 14,
+                    color: 'pink'
+                }
+            }
+          ]
       };
 
       // Plot the histogram
