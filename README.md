@@ -27,7 +27,7 @@ The relevant columns include:
 
 - Wind elevation in degrees (3D anemometer only).
 
-In practice the anemometer data is averaged only 15-minute intervals. After doing so (described in the dar preparation section below), there were 2626 rows of data.
+In practice the anemometer data is averaged only 15-minute intervals. After doing so and removing rows where either the 2D or 3D data was not represented (this is all described in the data preparation section below), there were 2344 rows of data.
 
 
 ## Data preparation
@@ -78,7 +78,9 @@ The columns that were added are descibed below.
 
 ### Joined dataframes: 
 
-Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2D_15min” and “data_3D_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2D_and_3D” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements.
+Now that the data was cleaned and the necessary columns added, it was time to merge the two datasets to allow for direct comparison of the data for the same times. New dataframes (designated “data_2D_15min” and “data_3D_15min”) were created for each of the 2D and 3D anemometer data sets, by averaging temperature, wind direction, and wind speed over 15-minute intervals. The wind direction was averaged using circular averaging. Circular averaging averages the east-west and north-south components separately, and then computes the average wind angle by finding the arctangent of the ratio of the components. Finally, a dataframe “df_2D_and_3D” was created via an outer join of the 15-minute averaged 2D anemometer data with the 15-minute averaged 3D anemometer data, joining on date, hour, and 15-minute bin. For all but the four days where one or both of the anemometers were iced up, this gives a 1 to 1 comparison of measurements. All rows with null values were removed.
+
+The joined dataframe of 15-minute averages for both anemometers was exported into a .csv, which was the data used for the dashboard. This joined dataframe had 2344 rows of data.
 
 ## The elements of the dashboard
 
@@ -106,9 +108,6 @@ I deployed my repository to GitHub Pages. The interactive dashboard I created in
 
 https://sabegg2.github.io/Project3/
 
-
-## Ethical considerations
-
 ## Data analysis
 
 ### Timeseries comparison
@@ -130,6 +129,7 @@ The images above show timeseries of the 15-minute averaged wind speed, wind dire
 The histograms show a distribution of the differences between the 2D and 3D anemometer data. 
 
 Over the 30-day span of data:
+
 - The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  
 
 - The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees, well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer.
@@ -144,7 +144,7 @@ Over the 30-day span of data:
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers, indicating that perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed has a higher error of measurement. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away!
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high for all three variables, indicating a strong linear relationship. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers, indicating that perhaps wind speed varies slighty over small distances (the anemometers are not far apart) or that wind speed has a higher error of measurement. Also, the points further from the regression lines for the wind direction and tempearture tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away!
 
 ### Overall conclusion
 
@@ -161,6 +161,11 @@ In this project, we were required to store and extract the data from at least on
 In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports).
 
 
+## Ethical considerations
+
+The data used in this study was from two anemometers located at a site in North Dakota. The anemometers and the data they provide are property of LongPath Technologies, Inc. Since historical wind data is accessibe to anyone who wants to install their own anemometer or from sevearl local foreacsting stations, the data is not considered confidential. There is no identifying information about the site or persons involved, so there are no ethical issues with its usage.
+
+
 ## References for data
 
 The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor. [https://www.longpathtech.com/](https://www.longpathtech.com/).
@@ -168,4 +173,4 @@ The wind data was provided by LongPath Tecchnologies, Inc., a methane-gas monito
 
 ## References for code
 
-For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database.
+For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database. I also used ChatGTP to help me write median function for computing the median for the histogram.
