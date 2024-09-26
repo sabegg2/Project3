@@ -51,3 +51,28 @@ Data stored in and extracted from at least one database (pgAdmin). To run, I wro
 I did a significant amout of data cleaning to prepare the 2d and 3d datasets used in the visualizations.
 
 [datacleaning.ipynb](datacleaning.ipynb)
+
+## New Library Not Covered in Class
+
+const express = require('express');
+const { Pool } = require('pg');
+const cors = require('cors');  // Import the CORS package
+
+You need a server-side language (e.g., Node.js, Python, PHP) to query the PostgreSQL database. This server will act as an intermediary between your database and D3.js in the browser.
+Install necessary dependencies:
+
+pg: PostgreSQL client for Node.js.
+express: To set up a server.
+
+Now, write a simple Node.js server that will query your PostgreSQL database and serve the data over HTTP.
+
+Summary of the Flow:
+Node.js server connects to PostgreSQL and queries the database.
+The data from PostgreSQL is exposed via an API endpoint (e.g., /data).
+D3.js in the front-end fetches the data from this API endpoint using d3.json() and visualizes it.
+
+You need to configure your Node.js server to allow cross-origin requests by adding CORS headers.
+
+Here’s how you can fix it by adding CORS support to your Node.js app.
+
+1. Install the cors package:
