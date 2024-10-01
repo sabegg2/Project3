@@ -157,11 +157,12 @@ The histograms show a distribution of the differences between the 2D and 3D anem
 
 Over the 30-day span of data:
 
-- The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  When the wind speed is filtered to > 1 m/s (2.2 mph), the average temperature difference (2D-3D) decreases to about 0.75°F.
+- The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour, even when wind speeds were filtered to > 1 m/s (2.2 mph). This is surprisingly small given the scatter in wind speeds.
 
 - The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees. When the wind speed is filtered to > 1 m/s (2.2 mph), the average wind direction difference (2D-3D) is -4.2 degrees. These average differences are well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer. When the wind speed is > 1m/s, most of the individual differences are also within the tolerance of the anemometer.
   
-- The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour, even when wind speeds were filtered to > 1 m/s (2.2 mph). This is surprisingly small given the scatter in wind speeds.
+- The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  When the wind speed is filtered to > 1 m/s (2.2 mph), the average temperature difference (2D-3D) decreases to about 0.75°F.
+
 
 #### Regression analysis
 
