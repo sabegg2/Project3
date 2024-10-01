@@ -26,8 +26,9 @@
 
 A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via time series plots, regression analysis, and binning.
 
-<img src="images/2d_anemometer.png" width=150> <img src="images/3d_anemometer.png" width=150>
-Left: 2D anemometer. Right: 3D anemometer.
+| 2D anemometer        | 3D anemometer     |
+|:---------------|-----------------:|
+| <img src="images/2d_anemometer.png" width=150>  | <img src="images/3d_anemometer.png" width=150> |
 
 
 ## The Data
@@ -136,11 +137,11 @@ https://sabegg2.github.io/Project3/
 
 #### Timeseries comparison
 
-<img src="images/timeseries_wspd.png" width=900> 
-
-<img src="images/timeseries_wdr.png" width=900> 
-
-<img src="images/timeseries_temp.png" width=900> 
+| All wind speeds             |
+|:----------------:|
+| <img src="images/timeseries_wspd.png" width=900>   |
+| <img src="images/timeseries_wdr.png" width=900>  |
+| <img src="images/timeseries_temp.png" width=900>  |
 
 The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. This is for all wind speeds. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
@@ -151,7 +152,6 @@ The images above show timeseries of the 15-minute averaged wind speed, wind dire
 | <img src="images/hist_wspd.png" width=300> | <img src="images/hist_wspd_greater1.png" width=300>   |
 | <img src="images/hist_wdr.png" width=300>  | <img src="images/hist_wdr_greater1.png" width=300> |
 | <img src="images/hist_temp.png" width=300> | <img src="images/hist_temp_greater1.png" width=300> |
-
 
 The histograms show a distribution of the differences between the 2D and 3D anemometer data. The histograms on the right filter the data to wind speeds > 1 m/s (2.2 mph).
 
@@ -170,7 +170,6 @@ Over the 30-day span of data:
 | <img src="images/reg_wspd.png" width=300> | <img src="images/reg_wspd_greater1.png" width=300>   |
 |  <img src="images/reg_wdr.png" width=300>  | <img src="images/reg_wdr_greater1.png" width=300> |
 | <img src="images/reg_temp.png" width=300> | <img src="images/reg_temp_greater1.png" width=300> |
-
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
