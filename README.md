@@ -136,19 +136,29 @@ https://sabegg2.github.io/Project3/
 
 #### Timeseries comparison
 
-<img src="images/timeseries_wspd.png" width=450> <img src="images/timeseries_wspd_greater1.png" width=450>
+<img src="images/timeseries_wspd.png" width=900> 
 
-<img src="images/timeseries_wdr.png" width=450> <img src="images/timeseries_wdr_greater1.png" width=450>
+<img src="images/timeseries_wdr.png" width=900> 
 
-<img src="images/timeseries_temp.png" width=450> <img src="images/timeseries_temp_greater1.png" width=450>
+<img src="images/timeseries_temp.png" width=900> 
 
-The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
+The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. This is for all wind speeds. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
 #### Histogram analysis
 
-<img src="images/hist_wspd.png" width=300> <img src="images/hist_wdr.png" width=300><img src="images/hist_temp.png" width=300>
+| Feature        | Description      |
+|:---------------|-----------------:|
+| <img src="images/hist_wspd.png" width=300>    | <img src="images/hist_wspd_greater1.png" width=300>   |
 
-The histograms show a distribution of the differences between the 2D and 3D anemometer data. 
+
+
+<img src="images/hist_wspd.png" width=300>  <img src="images/hist_wspd_greater1.png" width=300> 
+
+<img src="images/hist_wdr.png" width=300> <img src="images/hist_wdr_greater1.png" width=300>
+
+<img src="images/hist_temp.png" width=300> <img src="images/hist_temp_greater1.png" width=300>
+
+The histograms show a distribution of the differences between the 2D and 3D anemometer data. The histograms on the right show wind speeds
 
 Over the 30-day span of data:
 
