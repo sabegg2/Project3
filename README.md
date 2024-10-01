@@ -108,9 +108,10 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 The elements of the dashboard are:
 
-(1) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected.
+(1a) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected.
+(1b) A dropdown filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected.
 
-<img src="images/select.png" width=200>
+<img src="images/select.png" width=400>
 
 (2) A time series that shows the 2D and 3D anemometer data over time, as well as the difference between the measurements corresponding to the same 15-minute window. The user can zoom into the plot using the Plotly zoom feature.
 
@@ -120,7 +121,7 @@ The elements of the dashboard are:
 
 <img src="images/histogram.png" width=500>
 
-(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well.
+(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well. The points are colored by wind speed.
 
 <img src="images/regression.png" width=500>
 
@@ -135,11 +136,11 @@ https://sabegg2.github.io/Project3/
 
 #### Timeseries comparison
 
-<img src="images/timeseries_wspd.png" width=900>
+<img src="images/timeseries_wspd.png" width=450> <img src="images/timeseries_wspd_greater1.png" width=450>
 
-<img src="images/timeseries_wdr.png" width=900>
+<img src="images/timeseries_wdr.png" width=450> <img src="images/timeseries_wdr_greater1.png" width=450>
 
-<img src="images/timeseries_temp.png" width=900>
+<img src="images/timeseries_temp.png" width=450> <img src="images/timeseries_temp_greater1.png" width=450>
 
 The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
