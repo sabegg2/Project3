@@ -26,8 +26,9 @@
 
 A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via time series plots, regression analysis, and binning.
 
-<img src="images/2d_anemometer.png" width=150> <img src="images/3d_anemometer.png" width=150>
-Left: 2D anemometer. Right: 3D anemometer.
+| 2D anemometer        | 3D anemometer     |
+|:---------------|-----------------:|
+| <img src="images/2d_anemometer.png" width=150>  | <img src="images/3d_anemometer.png" width=150> |
 
 
 ## The Data
@@ -136,11 +137,11 @@ https://sabegg2.github.io/Project3/
 
 #### Timeseries comparison
 
-<img src="images/timeseries_wspd.png" width=900> 
-
-<img src="images/timeseries_wdr.png" width=900> 
-
-<img src="images/timeseries_temp.png" width=900> 
+| All wind speeds             |
+|:----------------:|
+| <img src="images/timeseries_wspd.png" width=900>   |
+| <img src="images/timeseries_wdr.png" width=900>  |
+| <img src="images/timeseries_temp.png" width=900>  |
 
 The images above show timeseries of the 15-minute averaged wind speed, wind direction, and temperature measurements of both the 2D (green) and 3D (blue) anemometers over the 30-day span of data. This is for all wind speeds. Visually, the 2D and 3D anemometer data for all dependent variables line up well. The purple dots show the difference (2D-3D) between the 15-minute averages. These differences hover near zero and are within the tolerances of the measurements (e.g. the tolerance of a wind direction measurement is 20 degrees, and the wind direction difference between the 2D and 3D anemometer measurements falls well below this value; a similar argument can be made for the difference in temperatures and wind speeds).  
 
@@ -152,16 +153,16 @@ The images above show timeseries of the 15-minute averaged wind speed, wind dire
 | <img src="images/hist_wdr.png" width=300>  | <img src="images/hist_wdr_greater1.png" width=300> |
 | <img src="images/hist_temp.png" width=300> | <img src="images/hist_temp_greater1.png" width=300> |
 
-
 The histograms show a distribution of the differences between the 2D and 3D anemometer data. The histograms on the right filter the data to wind speeds > 1 m/s (2.2 mph).
 
 Over the 30-day span of data:
 
-- The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  When the wind speed is filtered to > 1 m/s (2.2 mph), the average temperature difference (2D-3D) decreases to about 0.75°F.
-
-- The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees. When the wind speed is filtered to > 1 m/s (2.2 mph), the average wind direction difference (2D-3D) is -4.2 degrees. These average differences are well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer. When the wind speed is > 1m/s, most of the individual differences are also within the tolerance of the anemometer.
-  
 - The average wind speed difference (2D-3D) between the 2D and 3D anemometers was only -0.3 miles per hour, even when wind speeds were filtered to > 1 m/s (2.2 mph). This is surprisingly small given the scatter in wind speeds.
+
+- The average wind direction difference (2D-3D) between the 2D and 3D anemometers was -2.5 degrees. When the wind speed is filtered to > 1 m/s (2.2 mph), the average wind direction difference (2D-3D) is -4.2 degrees and the larger wind speed differences are filtered out. These average differences are well within the 20 degree (or so) tolerance of a wind direction measurement from an anemometer. When the wind speed is > 1m/s, most of the individual differences are also within the tolerance of the anemometer.
+  
+- The average temperature difference (2D-3D) between the 2D and 3D anemometers was about 0.9°F, where the 2D anemometer recorded slightly higher temperatures on average.  When the wind speed is filtered to > 1 m/s (2.2 mph), the average temperature difference (2D-3D) decreases to about 0.75°F and the larger temperature differences are filtered out.
+
 
 #### Regression analysis
 
@@ -171,10 +172,9 @@ Over the 30-day span of data:
 |  <img src="images/reg_wdr.png" width=300>  | <img src="images/reg_wdr_greater1.png" width=300> |
 | <img src="images/reg_temp.png" width=300> | <img src="images/reg_temp_greater1.png" width=300> |
 
-
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher) for all three variables, indicating a strong linear relationship. The R^2 values are even higher and there is less scatter for the wind direction and tempearture regressions for wind speeds > 1 m/s (2.2 mph). These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slightly over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. After all, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and temperature tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher) for all three variables, indicating a strong linear relationship. When the wind speed is filtered to > 1 m/s (2.2 mph), the wind direction and tempearture regressions show even less scatter and higher R^2 values. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slightly over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. After all, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and temperature tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
 
 #### Overall conclusion
 
