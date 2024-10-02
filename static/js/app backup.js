@@ -1,10 +1,8 @@
-//let data_location = 'http://localhost:3000/data'
-let data_location = 'data/data.json'
-
 // Function to build timeseries
 function buildTimeseries(plotType, speedFilter) {
   // Fetch data from the local Node.js server
-  d3.json(data_location).then(function(timeSeriesData) {
+  d3.json('http://localhost:3000/data').then(function(timeSeriesData) {
+  //d3.json('data/data.json').then(function(timeSeriesData) {
       
     // Combine date and hour into a single Date object
     let combinedDates = timeSeriesData.map(entry => {
@@ -121,7 +119,8 @@ function buildTimeseries(plotType, speedFilter) {
 // Function to build histogram
 function buildHistogram(plotType, speedFilter) {
   // Fetch data from the local Node.js server (in terminal: node server.js)
-  d3.json(data_location).then(function(timeSeriesData) {
+  d3.json('http://localhost:3000/data').then(function(timeSeriesData) {
+  //d3.json(data/data.json).then(function(timeSeriesData) {
         
     // Get values depending on plotType
     if (plotType == "Wind Speed") {
@@ -258,7 +257,8 @@ function buildHistogram(plotType, speedFilter) {
 // Function to build regression
 function buildRegression(plotType, speedFilter) {
   // Fetch data from the local Node.js server
-  d3.json(data_location).then(function(timeSeriesData) {
+  d3.json('http://localhost:3000/data').then(function(timeSeriesData) {
+  //d3.json('data/data.json').then(function(timeSeriesData) {
     // Get values depending on plotType
     if (plotType == "Wind Speed") {
       var data2D = timeSeriesData.map(entry => entry.wspd_mph_2d);
@@ -394,34 +394,30 @@ function builtAllPlots(plotType, speedFilter) {
   buildRegression(plotType, speedFilter);
 }
 
-// Function if a different radio button selected
-function optionChanged(option) {
+// Function for event listener
+// Function to handle plotting based on the selected radio button
+function plotTypeChanged(option) {
+  let plotType = document.getElementById('plotType').value;
+  let speedFilter = document.getElementById('speedFilter').value;
+  // Get the selected value from the radio button group
+  //let plotType = document.querySelector('input[name="plotType"]:checked').value;
+  //let speedFilter = document.querySelector('input[name="speedFilter"]:checked').value;
+  builtAllPlots(plotType, speedFilter);
+}
 
-  let radioButtons1 = document.getElementsByName('plotType');
-  // Loop through the radio buttons to find the checked one
-  for (let radioButton of radioButtons1) {
-    if (radioButton.checked) {
-      var plotType = radioButton.value; // Return the value of the checked radio button
-    }
-  }
- 
-  let radioButtons2 = document.getElementsByName('speedFilter');
-  // Loop through the radio buttons to find the checked one
-  for (let radioButton of radioButtons2) {
-    if (radioButton.checked) {
-      var speedFilter = radioButton.value; // Return the value of the checked radio button
-    }
-  }
-
+// Function for event listener
+function speedFilterChanged(option) {
+  let plotType = document.getElementById('plotType').value;
+  let speedFilter = document.getElementById('speedFilter').value;
   builtAllPlots(plotType, speedFilter);
 }
 
 // Function to run on page load
 function init() {
   
-  // Use d3 to select the div with id of #plotType
+  // Use d3 to select the dropdown with id of #plotType
   let plotTypeSelector = d3.select("#plotType");
-
+    
   // Add plot types
   let plotTypeList = [
     "Wind Speed",
@@ -429,15 +425,15 @@ function init() {
     "Temperature"
   ];
 
-  // Populate the selector with radio buttons
-  plotTypeList.forEach((option, index) => {
-    plotTypeSelector
-      .append("label")  // Create a label for each radio button
-      .html(`<input type="radio" name="plotType" value="${option}" id="plotType${index}" ${index === 0 ? 'checked' : ''} onchange="optionChanged(this.value)"> ${option}`)
-      .attr("for", `plotType${index}`);
+  // Populate the selector with options
+  plotTypeList.forEach((option) => {
+  plotTypeSelector
+    .append("option")
+    .text(option)
+    .property("value", option);
   });
 
-  // Use d3 to select the div with id of #speedFilter
+  // Use d3 to select the dropdown with id of #speedFilter
   let speedFilterSelector = d3.select("#speedFilter");
 
   // Add speeds
@@ -446,16 +442,16 @@ function init() {
     "Wind speed > 1 m/s (2.2mph)"
   ];
 
-  // Populate the selector with radio buttons
-  speedFilterList.forEach((option, index) => {
-    speedFilterSelector
-      .append("label")  // Create a label for each radio button
-      .html(`<input type="radio" name="speedFilter" value="${option}" id="speedFilter${index}" ${index === 0 ? 'checked' : ''} onchange="optionChanged(this.value)"> ${option}`)
-      .attr("for", `speedFilter${index}`);
+  // Populate the selector with options
+  speedFilterList.forEach((option) => {
+  speedFilterSelector
+    .append("option")
+    .text(option)
+    .property("value", option);
   });
 
   // Build charts and metadata panel for wind speed
-  optionChanged();
+  builtAllPlots("Wind Speed", "All wind speeds");
 };
 
 // Initialize the dashboard
