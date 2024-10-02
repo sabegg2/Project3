@@ -1,5 +1,5 @@
-//let data_location = 'http://localhost:3000/data'
-let data_location = 'data/data.json'
+//let data_location = 'http://localhost:3000/data' // must navigate to folder containing js files and type "node server.js" in terminal
+let data_location = 'data/data.json'  // go to http://localhost:8000
 
 // Function to build timeseries
 function buildTimeseries(plotType, speedFilter) {
