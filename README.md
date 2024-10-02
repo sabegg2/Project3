@@ -218,7 +218,7 @@ The data used in this study was from two anemometers located at a site in North 
 
 ## References for data
 
-The wind data was provided by LongPath Technologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. The data was collected at one of the sites they monitor. [https://www.longpathtech.com/](https://www.longpathtech.com/).
+The wind data was provided by LongPath Technologies, Inc., a methane-gas monitoring service based in Boulder, Colorado. I am a data analyst for LongPath Technologies, Inc. The data was collected at one of the sites they monitor. [https://www.longpathtech.com/](https://www.longpathtech.com/).
 
 
 ## References for code
