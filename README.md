@@ -126,6 +126,11 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
+(5) Popups that show images of the 2D and 3D anemometers with a brief description.
+
+<img src="images/popup.png" width=200> <img src="images/popup2D.png" width=400>  <img src="images/popup3D.png" width=400>
+
+
 The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
 
 I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. However, since the data is accessed from a local database on a local server, my local server must be running for the data to display.
