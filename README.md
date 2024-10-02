@@ -9,11 +9,11 @@
 
 - The data is stored in and extracted from a PostgreSQL database.
 
-- The project contains three JavaScript libraries that we did not cover in class (pg, express, and cors).
+- The project contains three JavaScript libraries that we did not cover in class (pg, express, cors, and SweetAlert2).
 
 - The project dataset has 2344 records (raw data has many more).
 
-- The project includes user-driven interaction since the user can select which metric (wind speed, wind direction, temperature) to view via a dropdown, and the JavaScript-powered visualizations can be zoomed into with Plotly tools.
+- The project includes user-driven interaction since the user can select which metric (wind speed, wind direction, temperature) to view via radio buttons, as well as filter by wind speed (all wind speeds, or all wind speeds greater than 1 m/s) via radio buttons. The user can also click on the buttons to read more about 2D and 3D anemometers. Plus, the JavaScript-powered visualizations can be zoomed into with Plotly tools.
 
 - Each of the visualizations (timeseries scatterplot, histogram, and regression scatterplot) includes three views corresponding to the three different metrics (wind speed, wind direction, temperature).
 
@@ -107,10 +107,14 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 ## The elements of the dashboard
 
+I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
+
+https://sabegg2.github.io/Project3/
+
 The elements of the dashboard are:
 
-(1a) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected.
-(1b) A dropdown filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected.
+(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. The Wind Speed is the default when the page first loads.
+(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. The All wind speeds is the default when the page first loads.
 
 <img src="images/select.png" width=400>
 
@@ -126,11 +130,12 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
+(5) Popups that show images of the 2D and 3D anemometers with a brief description.
+
+<img src="images/popup.png" width=200> <img src="images/popup2D.png" width=200>  <img src="images/popup3D.png" width=200>
+
+
 The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
-
-I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. However, since the data is accessed from a local database on a local server, my local server must be running for the data to display.
-
-https://sabegg2.github.io/Project3/
 
 
 ## Data analysis
@@ -183,12 +188,16 @@ Based on this analysis, the measurements of wind speed, wind direction, and temp
 
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data, I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data directly from the app (this would be useful if the database were updated), I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running. So for the purposes of my final project submission, I just included a static data.json file output by the database.
 
 
 ## New library not covered in class
 
-In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports).
+In this project, we were required to include at least one JavaScript or Python library that we did not cover in class. 
+
+For the purpose of accessing the database directly from the app, I used three new libraries: pg, express, and cors. The pg library is used to interact with PostgreSQL databases from a Node.js application. The express library is a fast, minimalist web framework for Node.js, used to build web servers and APIs. The cors library provides middleware to enable Cross-Origin Resource Sharing (CORS) in an Express application. CORS allows your server to handle requests from different origins (domains, ports).
+
+I also used SweetAlert2 JavaScript library, which provides customizable alerts, modals, and popups. I created two popups showing images and descriptions of the two anemometer types (2D and 3D).
 
 
 ## Ethical considerations
@@ -214,4 +223,8 @@ The wind data was provided by LongPath Technologies, Inc., a methane-gas monitor
 
 ## References for code
 
-For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The only significant code that I pulled directly from ChatGTP is the server.js code for connecting with the pgAdmin database. I also used ChatGTP to help me write median function for computing the median for the histogram.
+For the most part, I wrote my code on my own, using techniques learned in class. I find ChatGTP to be a great helper for directing me on the correct path. The main significant pieces of code that I pulled directly from ChatGTP are:
+
+- The server.js code for connecting with the pgAdmin database.
+- The code to write a median function for computing the median for the histogram.
+- The code for creating the SweetAlert2 popups.
