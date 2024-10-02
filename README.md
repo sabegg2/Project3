@@ -9,11 +9,11 @@
 
 - The data is stored in and extracted from a PostgreSQL database.
 
-- The project contains three JavaScript libraries that we did not cover in class (pg, express, and cors).
+- The project contains three JavaScript libraries that we did not cover in class (pg, express, cors, and SweetAlert2).
 
 - The project dataset has 2344 records (raw data has many more).
 
-- The project includes user-driven interaction since the user can select which metric (wind speed, wind direction, temperature) to view via a dropdown, and the JavaScript-powered visualizations can be zoomed into with Plotly tools.
+- The project includes user-driven interaction since the user can select which metric (wind speed, wind direction, temperature) to view via radio buttons, as well as filter by wind speed (all wind speeds, or all wind speeds greater than 1 m/s) via radio buttons. The user can also click on the buttons to read more about 2D and 3D anemometers. Plus, the JavaScript-powered visualizations can be zoomed into with Plotly tools.
 
 - Each of the visualizations (timeseries scatterplot, histogram, and regression scatterplot) includes three views corresponding to the three different metrics (wind speed, wind direction, temperature).
 
@@ -107,10 +107,14 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 ## The elements of the dashboard
 
+I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
+
+https://sabegg2.github.io/Project3/
+
 The elements of the dashboard are:
 
-(1a) A dropdown list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected.
-(1b) A dropdown filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected.
+(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. The Wind Speed is the default when the page first loads.
+(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. The All wind speeds is the default when the page first loads.
 
 <img src="images/select.png" width=400>
 
@@ -132,10 +136,6 @@ The elements of the dashboard are:
 
 
 The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
-
-I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
-
-https://sabegg2.github.io/Project3/
 
 
 ## Data analysis
