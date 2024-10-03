@@ -137,6 +137,9 @@ The elements of the dashboard are:
 
 The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
 
+## Instructions on how to use and interact with the project
+
+The dashboard is a single page showing three graphs: timeseries, histogram of differences, and scatterplot with regression line. Use the radio buttons on the upper right of the page to display either wind speed, wind direction, or temperature data. Radio buttons can also be used to filter the data to points with wind speeds > 1 m/s. Click the buttons to read more about 2D and 3D anemometers.
 
 ## Data analysis
 
