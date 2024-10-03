@@ -2,6 +2,20 @@
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project)
 - Data Visualization Track
 
+## Table of Contents
+- [Project requirements](#project-requirements)
+- [Research question](#research-question)
+- [The data](#the-data)
+- [Data preparation](#data-preparation)
+- [The elements of the dashboard](#the-elements-of-the-dashboard)
+- [Instructions on how to use and interact with the dashboard](#instructions-on-how-to-use-and-interact-with-the-dashboard)
+- [Data analysis](#data-analysis)
+- [Database](#database)
+- [New libraries not covered in class](#new-libraries-not-covered-in-class)
+- [Ethical considerations](#ethical-considerations)
+- [Assumptions made in this study](#assumptions-made-in-this-study)
+- [References for data](#references-for-data)
+- [References for code](#references-for-code)
 
 ## Project requirements
 
@@ -31,7 +45,7 @@ A question is whether 2D anemometer data such as temperature, wind direction, an
 | <img src="images/2d_anemometer.png" width=150>  | <img src="images/3d_anemometer.png" width=150> |
 
 
-## The Data
+## The data
 
 This study uses two datasets, both from anemometers located in North Dakota at 47.8437 N, 102.8524 W, elevation 2300 ft above sea level. The data from both anemometers spans spans 30 days from February 11, 2024 to March 11, 2024. One dataset is from is from a 2D anemometer and the other from a 3D anemometer. The anemometers measure on five-second intervals. There are two two-day gaps in the data, corresponding to when one or both of the anemometers was iced up: February 22 and 23 (both anemometers iced up) and March 3 and 4 (3D anemometer iced up). So we have a total of 26 days of data to compare. The raw 2D anemometer data contains 472,048 rows (pared down to 404,984 rows after cleaning the data) and the raw 3D anemometer data contains 420,917 rows (pared down to 420,911 rows after cleaning the data).
 
@@ -137,7 +151,7 @@ The elements of the dashboard are:
 
 The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
 
-## Instructions on how to use and interact with the project
+## Instructions on how to use and interact with the dashboard
 
 The dashboard is a single page showing three graphs: timeseries, histogram of differences, and scatterplot with regression line. Use the radio buttons on the upper right of the page to display either wind speed, wind direction, or temperature data. Radio buttons can also be used to filter the data to points with wind speeds > 1 m/s. Click the buttons to read more about 2D and 3D anemometers.
 
