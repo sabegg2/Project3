@@ -23,7 +23,7 @@
 
 - The data is stored in and extracted from a PostgreSQL database.
 
-- The project contains three JavaScript libraries that we did not cover in class (pg, express, cors, and SweetAlert2).
+- The project contains four JavaScript libraries that we did not cover in class (pg, express, cors, and SweetAlert2).
 
 - The project dataset has 2344 records (raw data has many more).
 
