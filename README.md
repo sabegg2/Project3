@@ -129,8 +129,8 @@ https://sabegg2.github.io/Project3/
 
 The elements of the dashboard are:
 
-(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. The Wind Speed is the default when the page first loads.
-(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. The All wind speeds is the default when the page first loads.
+(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. Wind speed is the default when the page first loads.
+(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. All wind speeds is the default when the page first loads.
 
 <img src="images/select.png" width=400>
 
