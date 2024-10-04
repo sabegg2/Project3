@@ -144,12 +144,12 @@ The elements of the dashboard are:
 
 <img src="images/regression.png" width=500>
 
-(5) Popups that show images of the 2D and 3D anemometers with a brief description.
+(5) Buttons that when clicked show popups with an image of the 2D or 3D anemometer with a brief description. The style of the buttons was set using css style file.
 
 <img src="images/popup.png" width=200> <img src="images/popup2D.png" width=200>  <img src="images/popup3D.png" width=200>
 
 
-The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
+The javascript and html and css files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html) and [style.css](static/css/style.css)
 
 ## Instructions on how to use and interact with the dashboard
 
