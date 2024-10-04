@@ -136,11 +136,11 @@ The elements of the dashboard are:
 
 <img src="images/timeseries.png" width=900>
 
-(3) A histogram for the differences between the measurements. The histogram also shows the average and median of the differences over the 30-day span of data.
+(3) A histogram for the differences between the measurements. The histogram also shows the average and median of the differences over the 30-day span of data. The binning is in set increments for each variable, so that integers always fall between two bins.
 
 <img src="images/histogram.png" width=500>
 
-(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well. The points are colored by wind speed.
+(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well. The points are colored by wind speed. The colorbar is fixed for all plots, even when low wind speeds are filtered out.
 
 <img src="images/regression.png" width=500>
 
