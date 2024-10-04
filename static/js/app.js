@@ -49,7 +49,7 @@ function buildTimeseries(plotType, speedFilter) {
     }
     // Filter y-values depending on speedFilter
     let wspd3D = timeSeriesData.map(entry => entry.wspd_mph_3d);
-    if (speedFilter === 'Wind speed > 1 m/s (2.2mph)') {
+    if (speedFilter === 'Wind speed > 1 m/s (2.2 mph)') {
       data2D = data2D.filter((_, i) => wspd3D[i] >= 2.24);
       data3D = data3D.filter((_, i) => wspd3D[i] >= 2.24);
       diff = diff.filter((_, i) => wspd3D[i] >= 2.24);
@@ -143,7 +143,7 @@ function buildHistogram(plotType, speedFilter) {
 
     // Filter values depending on speedFilter
     let wspd3D = timeSeriesData.map(entry => entry.wspd_mph_3d);
-    if (speedFilter === 'Wind speed > 1 m/s (2.2mph)') {
+    if (speedFilter === 'Wind speed > 1 m/s (2.2 mph)') {
       diff = diff.filter((_, i) => wspd3D[i] >= 2.24);
     }
 
@@ -283,7 +283,7 @@ function buildRegression(plotType, speedFilter) {
         
     // Filter values depending on speedFilter
     let wspd3D = timeSeriesData.map(entry => entry.wspd_mph_3d);
-    if (speedFilter === 'Wind speed > 1 m/s (2.2mph)') {
+    if (speedFilter === 'Wind speed > 1 m/s (2.2 mph)') {
       data2D = data2D.filter((_, i) => wspd3D[i] >= 2.24);
       data3D = data3D.filter((_, i) => wspd3D[i] >= 2.24);
       color_by = color_by.filter((_, i) => wspd3D[i] >= 2.24);
@@ -443,7 +443,7 @@ function init() {
   // Add speeds
   let speedFilterList = [
     "All wind speeds",
-    "Wind speed > 1 m/s (2.2mph)"
+    "Wind speed > 1 m/s (2.2 mph)"
   ];
 
   // Populate the selector with radio buttons
