@@ -1,5 +1,5 @@
 # Project 3: Anemometer Data Comparison Dashboard
-- Steph Abegg (I ran it by James first, and he was okay with me going solo for this project)
+- Steph Abegg (I ran it by James first, and he was okay with me going solo for this project with no grade cut)
 - Data Visualization Track
 
 ## Table of Contents
@@ -136,20 +136,20 @@ The elements of the dashboard are:
 
 <img src="images/timeseries.png" width=900>
 
-(3) A histogram for the differences between the measurements. The histogram also shows the average and median of the differences over the 30-day span of data.
+(3) A histogram for the differences between the measurements. The histogram also shows the average and median of the differences over the 30-day span of data. The binning is in set increments for each variable, so that integers always fall between two bins.
 
 <img src="images/histogram.png" width=500>
 
-(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well. The points are colored by wind speed.
+(4) A scatterplot of 2D vs. 3D data. A regression line and R^2 value is shown on the plot as well. The points are colored by wind speed. The colorbar is fixed for all plots, even when low wind speeds are filtered out.
 
 <img src="images/regression.png" width=500>
 
-(5) Popups that show images of the 2D and 3D anemometers with a brief description.
+(5) Buttons that when clicked show popups with an image of the 2D or 3D anemometer with a brief description. The style of the buttons was set using css style file.
 
 <img src="images/popup.png" width=200> <img src="images/popup2D.png" width=200>  <img src="images/popup3D.png" width=200>
 
 
-The javascript and html files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html).
+The javascript and html and css files for the dashboard are [app.js](static/js/app.js) and [index.html](index.html) and [style.css](static/css/style.css)
 
 ## Instructions on how to use and interact with the dashboard
 
