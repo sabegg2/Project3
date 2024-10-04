@@ -205,7 +205,7 @@ Based on this analysis, the measurements of wind speed, wind direction, and temp
 
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data directly from the app (this would be useful if the database were updated), I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running. So for the purposes of my final project submission, I just included a static data.json file output by the database.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](database/anemometer_db_schema.sql). To access the data directly from the app (this would be useful if the database were updated), I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running. So for the purposes of my final project submission, I just included a static data.json file output by the database.
 
 
 ## New libraries not covered in class
