@@ -19,7 +19,7 @@
 
 ## Project requirements
 
-- The project includes visualizations, created with Plotly in JavaScript. There are three vislizations (timeseries scatterplot, histogram, and regression scatterplot) for each metric.
+- The project includes visualizations, created with Plotly in JavaScript. There are three visualizations (timeseries scatterplot, histogram, and regression scatterplot) for each metric.
 
 - The data is stored in and extracted from a PostgreSQL database.
 
@@ -36,9 +36,11 @@
 
 ## Research question
 
-3D anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
+I work for [LongPath Technologies](https://www.longpathtech.com/), a Boulder-based company that has created revolutionary laser-based technology to monitor methane gas emissions. We monitor emissions at hundreds of sites across the United States. The technology works by measuring the methane concentration on either side of the site, and using the difference in measurements along with wind speed and wind direction data to compute the methane being emitted by the site. So site-specific accurate wind measurements are vital to accurate emission readings. LongPath has a 3D anemometer installed at each site to collect wind data.
 
-A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, we analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via time series plots, regression analysis, and binning.
+Three-dimensional (3D) anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
+
+A question is whether 2D anemometer data such as temperature, wind direction, and wind speed can be used as a substitute for the equivalent measurements from a 3D anemometer. This would be particularly beneficial during the times when a 3D anemometer is iced up. To address this question, I analyze data collected from a 2D anemometer and a 3D anemometer at the same location during the same 30-day time frame. The data from both anemometers is recorded on 5-second intervals. The data for each anemometer is first averaged over 15-minute windows (this smooths out the data as well as corresponds to how the wind data is used in practice), and then the 15-minute averaged temperatures, wind directions, and wind speeds are directly compared via time series plots, regression analysis, and binning.
 
 | 2D anemometer        | 3D anemometer     |
 |:---------------|-----------------:|
@@ -47,7 +49,7 @@ A question is whether 2D anemometer data such as temperature, wind direction, an
 
 ## The data
 
-This study uses two datasets, both from anemometers located in North Dakota at 47.8437 N, 102.8524 W, elevation 2300 ft above sea level. The data from both anemometers spans spans 30 days from February 11, 2024 to March 11, 2024. One dataset is from is from a 2D anemometer and the other from a 3D anemometer. The anemometers measure on five-second intervals. There are two two-day gaps in the data, corresponding to when one or both of the anemometers was iced up: February 22 and 23 (both anemometers iced up) and March 3 and 4 (3D anemometer iced up). So we have a total of 26 days of data to compare. The raw 2D anemometer data contains 472,048 rows (pared down to 404,984 rows after cleaning the data) and the raw 3D anemometer data contains 420,917 rows (pared down to 420,911 rows after cleaning the data).
+This study uses two datasets, both from anemometers located in North Dakota at 47.8437 N, 102.8524 W, elevation 2300 ft above sea level. The data from both anemometers spans 30 days from February 11, 2024 to March 11, 2024. One dataset is from is from a 2D anemometer and the other from a 3D anemometer. The anemometers measure on five-second intervals. There are two two-day gaps in the data, corresponding to when one or both of the anemometers was iced up: February 22 and 23 (both anemometers iced up) and March 3 and 4 (3D anemometer iced up). So there are a total of 26 days of data to compare. The raw 2D anemometer data contains 472,048 rows (pared down to 404,984 rows after cleaning the data) and the raw 3D anemometer data contains 420,917 rows (pared down to 420,911 rows after cleaning the data).
 
 The relevant columns include:
 
@@ -127,8 +129,8 @@ https://sabegg2.github.io/Project3/
 
 The elements of the dashboard are:
 
-(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. The Wind Speed is the default when the page first loads.
-(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. The All wind speeds is the default when the page first loads.
+(1a) A radio button list with three options: Wind Speed, Wind Direction, Temperature. This allows different data to be to be selected and viewed. All of the plots and metadata update when a new option is selected. Wind speed is the default when the page first loads.
+(1b) A radio button filter with two options: All wind speeds, or wind speeds greater than 1m/s (2.2 mph). All of the plots and metadata update when a new option is selected. All wind speeds is the default when the page first loads.
 
 <img src="images/select.png" width=400>
 
@@ -196,7 +198,7 @@ Over the 30-day span of data:
 
 The 2D and 3D anemometers are from the same location, so under ideal behavior they would record the same measurements, barring for small differences due to height and terrain. Linear regressions were conducted to quantify the linear relationship between the measurements of the two anemometers. The data is colored on a gradient corresponding to wind speed, the metric that has greatest effect on scatter.
 
-The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher) for all three variables, indicating a strong linear relationship. When the wind speed is filtered to > 1 m/s (2.2 mph), the wind direction and tempearture regressions show even less scatter and higher R^2 values. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slightly over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. After all, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and temperature tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
+The images above show the linear regression between the 15-minute averaged temperature measurements of the two anemometers. The R^2 values are quite high (0.90 or higher) for all three variables, indicating a strong linear relationship. When the wind speed is filtered to > 1 m/s (2.2 mph), the wind direction and temperature regressions show even less scatter and higher R^2 values. These are all positive linear relationships. The R^2 value is the lowest for the wind speed regression, indicating a bit more scatter with that variable between the two anemometers. Perhaps wind speed varies slightly over small distances (the anemometers are not far apart) or that wind speed just has a higher error of measurement. After all, the average difference in wind speeds between the two anemometers is only -0.3 mph, indicating that the scatter has no bias. Also, the points further from the regression lines for the wind direction and temperature tend to have lower wind speeds. It makes sense that calm winds tend to have a less definite wind direction. One possible theory for the temperature scatter at lower wind speed that the 2D anemometer is located in an area where the surroundings tend to absorb heat a bit more than around the 3D anemometer, leading to slightly elevated temperatures if there is less wind to blow the heat away.
 
 #### Overall conclusion
 
@@ -205,7 +207,7 @@ Based on this analysis, the measurements of wind speed, wind direction, and temp
 
 ## Database
 
-In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](anemometer_db_schema.sql). To access the data directly from the app (this would be useful if the database were updated), I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running. So for the purposes of my final project submission, I just included a static data.json file output by the database.
+In this project, we were required to store and extract the data from at least one database. I used pgAdmin. My SQL schema is [anemometer_db_schema.sql](database/anemometer_db_schema.sql). To access the data directly from the app (this would be useful if the database were updated), I wrote a Node.js server ([server.js](static/js/app.js)) that queries my PostgreSQL database and serves the data over HTTP as a json file. For the data to display, my local server needs to be running. So for the purposes of my final project submission, I just included a static data.json file ([data.json](data/data.json)) output by the database.
 
 
 ## New libraries not covered in class
