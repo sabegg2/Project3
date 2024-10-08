@@ -3,7 +3,7 @@
 - Data Visualization Track
 - I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
 
-<center>https://sabegg2.github.io/Project3/</center>
+#https://sabegg2.github.io/Project3/
 
 ## Table of Contents
 - [Project requirements](#project-requirements)
