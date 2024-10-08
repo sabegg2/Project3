@@ -2,6 +2,10 @@
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project with no grade cut)
 - Data Visualization Track
 
+I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
+
+https://sabegg2.github.io/Project3/
+
 ## Table of Contents
 - [Project requirements](#project-requirements)
 - [Research question](#research-question)
@@ -122,10 +126,6 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 
 ## The elements of the dashboard
-
-I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
-
-https://sabegg2.github.io/Project3/
 
 The elements of the dashboard are:
 
