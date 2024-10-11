@@ -1,6 +1,9 @@
 # Project 3: Anemometer Data Comparison Dashboard
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project with no grade cut)
 - Data Visualization Track
+- I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
+
+# https://sabegg2.github.io/Project3/
 
 ## Table of Contents
 - [Project requirements](#project-requirements)
@@ -36,7 +39,7 @@
 
 ## Research question
 
-I work for [LongPath Technologies](https://www.longpathtech.com/), a Boulder-based company that has created revolutionary laser-based technology to monitor methane gas emissions. We monitor emissions at hundreds of sites across the United States. The technology works by measuring the methane concentration on either side of the site, and using the difference in measurements along with wind speed and wind direction data to compute the methane being emitted by the site. So site-specific accurate wind measurements are vital to accurate emission readings. LongPath has a 3D anemometer installed at each site to collect wind data.
+I work for [LongPath Technologies](https://www.longpathtech.com/), a Boulder-based company that has created revolutionary laser-based technology to monitor methane gas emissions. We monitor emissions at hundreds of sites across the United States. The technology works by measuring the methane concentration on either side of the site, and using the difference in measurements along with wind speed and wind direction data to compute plume models for the methane on the site. So site-specific accurate wind measurements are vital to accurate emission readings. LongPath has a 3D anemometer installed at each site to collect wind data.
 
 Three-dimensional (3D) anemometers offer more comprehensive measurements than 2D anemometers by capturing wind speed and direction in three dimensions, providing a complete understanding of wind flow. This makes them ideal for complex environments and scientific research that require detailed wind analysis. However, they are typically more expensive and may be more susceptible to environmental factors such as precipitation and icing up. In contrast, 2D anemometers measure only the horizontal components of wind speed and direction, making them suitable for applications where vertical wind measurements are less critical or where there is a fair amount of precipitation.
 
@@ -122,10 +125,6 @@ The joined dataframe of 15-minute averages for both anemometers was exported int
 
 
 ## The elements of the dashboard
-
-I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
-
-https://sabegg2.github.io/Project3/
 
 The elements of the dashboard are:
 
