@@ -35,7 +35,7 @@ function buildTimeseries(plotType, speedFilter) {
       var plot_title = 'Timeseries of Wind Direction';
       var y_axis_label = 'Wind Direction (degrees)';
       var name2D = 'Wind Direction 2D (degrees)';
-      var name3D = 'Wind Direction 2D (degrees)';
+      var name3D = 'Wind Direction 3D (degrees)';
       var nameDiff = 'Wind Direction diffrence, 2D-3D';
     } else {
       var data2D = timeSeriesData.map(entry => entry.temp_f_2d);
