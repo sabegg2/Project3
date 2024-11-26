@@ -1,4 +1,4 @@
-# Project 3: Anemometer Data Comparison Dashboard
+# Project 3: Anemometer Data Comparison Dashboard, using Javascript
 - Steph Abegg (I ran it by James first, and he was okay with me going solo for this project with no grade cut)
 - Data Visualization Track
 - I deployed my repository to GitHub Pages. The interactive dashboard I created in this assignment can be displayed and interacted with at the following link. 
